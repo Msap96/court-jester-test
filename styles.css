@@ -1,88 +1,160 @@
-/* Modern CSS styles for Court Jester website */
 :root {
-    --primary-color: #4a90e2;
-    --secondary-color: #2c3e50;
-    --background-color: #f5f6fa;
+    --primary-color: #4a0e78;
+    --secondary-color: #ffd700;
+    --tertiary-color: #e60073;
+    --background-color: #f0e6ff;
     --text-color: #333;
-}
-
-* {
+  }
+  
+  body {
+    font-family: "Lato", sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
     background-color: var(--background-color);
-}
-
-.header {
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 1rem 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
-
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    gap: 2rem;
-}
-
-nav a {
-    text-decoration: none;
-    color: var(--secondary-color);
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-nav a:hover {
-    color: var(--primary-color);
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 6rem 2rem 2rem;
-}
-
-section {
-    margin-bottom: 4rem;
-    padding: 2rem;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-h1 {
-    color: var(--primary-color);
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-h2 {
-    color: var(--secondary-color);
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-p {
-    margin-bottom: 1rem;
-}
-
-.footer {
-    background-color: var(--secondary-color);
-    color: white;
+    color: var(--text-color);
+    background-image: radial-gradient(circle, var(--secondary-color) 10%, transparent 10%),
+      radial-gradient(circle, var(--secondary-color) 10%, transparent 10%);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+    animation: backgroundMove 60s linear infinite;
+  }
+  
+  @keyframes backgroundMove {
+    from {
+      background-position: 0 0, 25px 25px;
+    }
+    to {
+      background-position: 1000px 0, 1025px 25px;
+    }
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .container::before,
+  .container::after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: var(--tertiary-color);
+    opacity: 0.5;
+    border-radius: 50%;
+  }
+  
+  .container::before {
+    top: -50px;
+    left: -50px;
+  }
+  
+  .container::after {
+    bottom: -50px;
+    right: -50px;
+  }
+  
+  header {
     text-align: center;
-    padding: 1rem;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
+    margin-bottom: 30px;
+  }
+  
+  h1,
+  h2,
+  h3 {
+    font-family: "Fondamento", cursive;
+    color: var(--primary-color);
+  }
+  
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px var(--secondary-color);
+  }
+  
+  .jester-section {
+    margin: 20px 0;
+    padding: 20px;
+    border: 3px solid var(--secondary-color);
+    border-radius: 10px;
+    background-color: rgba(255, 215, 0, 0.1);
+    position: relative;
+  }
+  
+  .jester-section::before {
+    content: "🃏";
+    font-size: 2em;
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    background-color: white;
+    padding: 0 10px;
+  }
+  
+  .jester-section ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .jester-section li {
+    margin-bottom: 10px;
+    padding-left: 30px;
+    position: relative;
+  }
+  
+  .jester-section li::before {
+    content: "👑";
+    position: absolute;
+    left: 0;
+  }
+  
+  .joke-box {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transform: rotate(-1deg);
+  }
+  
+  .joke-box h3 {
+    color: var(--secondary-color);
+    margin-top: 0;
+  }
+  
+  .joke-question {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .joke-answer {
+    font-style: italic;
+    color: var(--secondary-color);
+  }
+  
+  footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: var(--primary-color);
+  }
+  
+  @media (max-width: 600px) {
+    .container {
+      margin: 10px;
+      padding: 15px;
+    }
+  
+    h1 {
+      font-size: 2em;
+    }
+  }
+  
+  
